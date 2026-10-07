@@ -1,0 +1,14 @@
+{
+  "name": "canal-boatworkers-story-station",
+  "version": "1.0.0",
+  "description": "运河船工故事站：历史地点身份、时间轴地图、时间窗航线、片段许可与离线快照",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

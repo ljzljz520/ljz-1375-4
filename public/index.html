@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>运河船工故事站</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>运河船工故事站</h1>
+    <p>时间轴 × 地图 × 家庭访谈 · 历史身份与今日交通分开核实</p>
+  </div>
+  <div id="versionBadge" class="badge"></div>
+</header>
+<nav class="tabs">
+  <button data-tab="story" class="active">故事地图</button>
+  <button data-tab="route">路线查询</button>
+  <button data-tab="media">访谈音轨</button>
+  <button data-tab="offline">离线收藏</button>
+</nav>
+<main>
+  <section id="tab-story" class="tab active">
+    <div class="split">
+      <div class="panel timeline-panel">
+        <h2>历史时间轴</h2>
+        <div id="timeline"></div>
+      </div>
+      <div class="panel map-panel">
+        <h2>码头、船闸、粮仓与家庭</h2>
+        <div class="legend"><span class="dot dock"></span>码头 <span class="dot lock"></span>船闸 <span class="dot granary"></span>粮仓 <span class="dot home"></span>家庭 <span class="dot proposed"></span>待定位</div>
+        <svg id="map" viewBox="0 0 850 560" role="img" aria-label="运河故事地图"></svg>
+        <div id="placeDetail" class="detail"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-route" class="tab">
+    <div class="panel">
+      <h2>预制路线检查 vs 动态最早到达</h2>
+      <form id="routeForm" class="formgrid">
+        <label>起点 <select id="fromNode"></select></label>
+        <label>终点 <select id="toNode"></select></label>
+        <label>出发时间 <input id="routeAt" value="2026-10-08T07:25:00.000Z" /></label>
+        <label>预制路线 <select id="prebuiltRoute"></select></label>
+        <button>比较</button>
+      </form>
+      <div class="actions">
+        <button id="publishClosure">发布“老船闸临时关闭”公告并重查</button>
+      </div>
+      <div id="routeResult"></div>
+    </div>
+  </section>
+
+  <section id="tab-media" class="tab">
+    <div class="split">
+      <div class="panel"><h2>访谈片段与逐字稿</h2><div id="interviewList"></div></div>
+      <div class="panel"><h2>公开音轨清单与许可</h2><div id="trackPanel"></div></div>
+    </div>
+  </section>
+
+  <section id="tab-offline" class="tab">
+    <div class="panel">
+      <h2>离线收藏：内容 / 交通双版本</h2>
+      <p class="warning">离线包中的开放状态只标记为“缓存未核实”，不会显示成已核实的实时开放。</p>
+      <div class="actions">
+        <button id="saveSnapshot">保存当前收藏快照</button>
+        <button id="reconcile">重连并只替换受影响部分</button>
+        <button id="exportList">导出收藏列表</button>
+        <button id="exportText">导出无图阅读稿</button>
+        <button id="exportPrint">导出打印路线</button>
+      </div>
+      <pre id="offlineResult"></pre>
+    </div>
+  </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
